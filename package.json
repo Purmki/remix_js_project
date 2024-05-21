@@ -2,7 +2,7 @@
   "name": "remix_js_project",
   "private": true,
   "sideEffects": false,
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "build": "remix vite:build",
     "dev": "remix vite:dev",
@@ -10,6 +10,7 @@
     "start": "remix-serve ./build/server/index.js"
   },
   "dependencies": {
+    
     "@remix-run/node": "^2.9.2",
     "@remix-run/react": "^2.9.2",
     "@remix-run/serve": "^2.9.2",

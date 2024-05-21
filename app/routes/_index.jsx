@@ -1,4 +1,4 @@
-import { Link } from "@remix-run/react";
+import { Link, Links, Meta, useRouteError } from "@remix-run/react";
 import { useEffect } from "react"; // Import useEffect hook from React
 import "swiper/swiper-bundle.css"; // Import Swiper CSS
 import Swiper from "swiper"; // Import Swiper library
@@ -75,3 +75,25 @@ export default function Index() {
     </div>
   );
 }
+
+export function ErrorBoundary() {
+  const error = useRouteError();
+  return (
+    <html lang="en">
+      <head>
+        <Meta />
+        <Links />
+        <title>An error occurred!</title>
+      </head>
+      <body>
+          <IconError />
+          <div>
+            <h4>{error?.message}</h4>
+          </div>
+        <ScrollRestoration />
+        <Scripts />
+        <LiveReload />
+      </body>
+    </html>
+  );
+  }

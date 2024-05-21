@@ -4,9 +4,12 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useRouteError
 } from "@remix-run/react";
 import MainNavigation from "./components/mainNavigation";
-import stylesheet from "./styles/tailwind.css";
+import stylesheet from "./styles/tailwind.css?url";
+import MainFooter from "./components/mainFooter";
+
 
 export const links = () => [
   { rel: "stylesheet", href: stylesheet },
@@ -26,6 +29,9 @@ export function Layout({ children }) {
         <MainNavigation />  
         </header>
         {children}
+        <footer>
+          <MainFooter />
+        </footer>
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -36,3 +42,26 @@ export function Layout({ children }) {
 export default function App() {
   return <Outlet />;
 }
+
+
+// export function ErrorBoundary() {
+// const error = useRouteError();
+// return (
+//   <html lang="en">
+//     <head>
+//       <Meta />
+//       <Links />
+//       <title>An error occurred!</title>
+//     </head>
+//     <body>
+//         <IconError />
+//         <div>
+//           <h4>{error?.message}</h4>
+//         </div>
+//       <ScrollRestoration />
+//       <Scripts />
+//       <LiveReload />
+//     </body>
+//   </html>
+// );
+// }
